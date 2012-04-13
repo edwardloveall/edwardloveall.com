@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
-  respond_to :html, :json, :rss
+  respond_to :html
   
   def index
+    # TODO order scopes to order by project order / category order
     respond_with @projects = Project.order("created_at DESC")
   end
   
@@ -31,6 +32,8 @@ class ProjectsController < ApplicationController
   end
   
   def destroy
-    
+    @project = Project.find(params[:id])
+    flash[:notice] = "Project Deleted" if @project.destroy
+    respond_with @project
   end
 end

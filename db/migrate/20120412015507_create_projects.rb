@@ -5,7 +5,6 @@ class CreateProjects < ActiveRecord::Migration
       t.string  :slug
       t.integer :category_id
       t.text    :description
-      t.boolean :act_as_category
       
       t.timestamps
     end

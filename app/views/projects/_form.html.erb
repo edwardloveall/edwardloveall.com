@@ -16,8 +16,8 @@
   </div>
   
   <div class="field">
-    <%= f.label :act_as_category %>
-    <%= f.check_box :act_as_category %>
+    <%= f.label :category_id %>
+    <%= collection_select(:project, :category_id, Category.order("sequence"), :id, :name) %>
   </div>
   
   <div class="actions">

@@ -1,0 +1,11 @@
+<table id="categories">
+<% @categories.each do |category| %>
+<tr>
+  <td><%= category.sequence %></td>
+  <td><strong><%= category.name %></strong></td>
+  <td><%= link_to 'Edit', edit_category_path(category) %></td>
+  <td><%= link_to 'Delete', category, confirm: 'Are you sure?', method: :delete %></td>
+</tr>
+<% end %>
+</table>
+<%= link_to 'New Category', new_category_path %>

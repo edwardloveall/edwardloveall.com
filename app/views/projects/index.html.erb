@@ -1,5 +1,10 @@
-<ul id="projects">
+<table id="projects">
   <% @projects.each do |project| %>
-  <li><%= link_to project.title, project %></li>
+  <tr>
+    <td><strong><%= link_to project.title, project %></strong></td>
+    <td><%= link_to 'Edit', edit_project_path(project) %></td>
+    <td><%= link_to 'Delete', project, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
   <% end %>
-</ul>
+</table>
+<%= link_to 'New Project', new_project_path %>
