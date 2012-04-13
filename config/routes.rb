@@ -1,6 +1,7 @@
 Edwardloveall::Application.routes.draw do
   resources :projects
   resources :categories
+  resources :pages
   
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

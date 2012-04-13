@@ -1,0 +1,11 @@
+<table>
+<% @pages.each do |page| %>
+<tr class="page">
+  <td><%= page.sequence %></td>
+  <td><strong><%= link_to page.name, page %></strong></td>
+  <td><%= link_to 'Edit', edit_page_path(page) %></td>
+  <td><%= link_to 'Delete', page, confirm: 'Are you sure?', method: :delete %></td>
+</tr>
+<% end %>
+</table>
+<%= link_to 'New Page', new_page_path %>
