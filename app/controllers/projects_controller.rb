@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
     flash[:notice] = "Project Saved" if @project.save
-    respond_with @project
+    redirect_to root_url, notice: "Project created!"
   end
   
   def update
