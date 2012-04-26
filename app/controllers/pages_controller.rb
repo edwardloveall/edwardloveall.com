@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   respond_to :html
-  before_filter :authorize
+  # before_filter :authorize
   
   def index
     respond_with @pages = Page.order("sequence")

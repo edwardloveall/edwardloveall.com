@@ -1,4 +1,4 @@
-<%= form_for(@category) do |f| %>
+<%= form_for @medium do |f| %>
 
   <div class="field">
     <%= f.label :name %>
@@ -6,12 +6,11 @@
   </div>
   
   <div class="field">
-    <%= f.label :sequence %>
-    <%= f.text_field :sequence %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
   </div>
   
   <div class="action">
     <%= f.submit "Submit", :disable_with => 'Submiting...' %>
   </div>
-  
-<% end %>
+<% end -%>

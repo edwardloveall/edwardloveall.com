@@ -1,18 +1,26 @@
 <ul id="side-items">
   <% @sidelist.each do |item| %>
+  
     <% begin item.projects.any? %>
+    
       <li class="item"><strong><%= item.name %></strong>
         <ul class="project-group">
           <% item.projects.each do |project| %>
+
           <li class="project">
             <%= link_to project.title, project %>
           </li> <!-- .project -->
+
           <% end # item.projects.each %>
         </ul> <!-- .project-group -->
       </li> <!-- .item -->
+    
     <% rescue %>
+    
       <li class="item"><strong><%= link_to item.name, item %></strong></li>
+    
     <% end # begin item.projects.any? %>
+    
   <% end # @sidelist.each %>
 </ul> <!-- #side-items -->
 <%= link_to 'New Project', new_project_path if current_user %>
