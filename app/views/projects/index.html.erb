@@ -1,8 +1,8 @@
 <ul id="side-items">
   <% @sidelist.each do |item| %>
   
-    <% begin item.projects.any? %>
-    
+    <% if item.respond_to? :projects %>
+      
       <li class="item"><strong><%= item.name %></strong>
         <ul class="project-group">
           <% item.projects.each do |project| %>
@@ -13,13 +13,14 @@
 
           <% end # item.projects.each %>
         </ul> <!-- .project-group -->
+        <%= "This category has no projects" if item.projects.blank? %>
       </li> <!-- .item -->
-    
-    <% rescue %>
+      
+    <% else %>
     
       <li class="item"><strong><%= link_to item.name, item %></strong></li>
     
-    <% end # begin item.projects.any? %>
+    <% end %>
     
   <% end # @sidelist.each %>
 </ul> <!-- #side-items -->
