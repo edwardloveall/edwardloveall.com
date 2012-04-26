@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  integer: 
+  integer: 
+  type: 1
+  url: MyString
+
+two:
+  name: MyString
+  integer: 
+  integer: 
+  type: 1
+  url: MyString

@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   respond_to :html
+  before_filter :authorize
   
   def index
     respond_with @pages = Page.order("sequence")
@@ -17,7 +18,11 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(params[:page])
     flash[:notice] = "Page Saved" if @page.save
-    respond_with @page
+    redirect_to pages_path, message: "Page created"
+  end
+  
+  def edit
+    respond_with @page = Page.find(params[:id])
   end
   
   def update

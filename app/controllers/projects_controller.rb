@@ -2,8 +2,11 @@ class ProjectsController < ApplicationController
   respond_to :html
   
   def index
-    # TODO order scopes to order by project order / category order
-    respond_with @projects = Project.order("created_at DESC")
+    # respond_with @projects = Project.order("created_at DESC")
+    @categories = Category.all
+    @pages = Page.all
+    @sidelist = (@categories + @pages).sort_by { |item| item.sequence }
+    respond_with @sidelist
   end
   
   def new
