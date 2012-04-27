@@ -1,4 +1,6 @@
 class Medium < ActiveRecord::Base
-  belongs_to :projects
-  belongs_to :pages
+  belongs_to :project
+  belongs_to :page
+  
+  TYPES = ['video', 'audio', 'picture']
 end

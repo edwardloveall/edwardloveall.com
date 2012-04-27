@@ -1,6 +1,7 @@
 class MediaController < ApplicationController
   respond_to :html
   before_filter :authorize
+  before_filter :define_vars, only: [:new, :edit]
   
   def index
     respond_with @media = Medium.all
@@ -34,5 +35,13 @@ class MediaController < ApplicationController
     @medium = Medium.find(params[:id])
     flash[:notice] = "Media deleted" if @medium.destroy
     respond_with @medium
+  end
+  
+  private
+  
+  def define_vars
+    @projects = Project.all
+    @pages = Page.all
+    @types = Medium::TYPES
   end
 end

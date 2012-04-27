@@ -15,8 +15,8 @@ class ProjectsController < ApplicationController
   end
   
   def new
-    @project = Project.new
-    respond_with @project
+    @categories = Category.order("sequence")
+    respond_with @project = Project.new
   end
   
   def create
@@ -26,6 +26,7 @@ class ProjectsController < ApplicationController
   end
   
   def edit
+    @categories = Category.order("sequence")
     respond_with @project = Project.find(params[:id])
   end
   

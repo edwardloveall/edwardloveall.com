@@ -10,6 +10,26 @@
     <%= f.text_field :url %>
   </div>
   
+  <div class="field">
+    <%= f.label :page_id, "Page" %>
+    <%= f.collection_select :page_id, @pages, :id, :name, {include_blank: true} %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :project_id, "Project" %>
+    <%= f.collection_select :project_id, @projects, :id, :title, {include_blank: true} %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :type %>
+    <%= f.select :type, @types %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :appended %>
+    <%= f.text_area :appended %>
+  </div>
+  
   <div class="action">
     <%= f.submit "Submit", :disable_with => 'Submiting...' %>
   </div>
