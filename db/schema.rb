@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20120426235550) do
     t.string   "name"
     t.integer  "project_id"
     t.integer  "page_id"
-    t.string   "type"
+    t.string   "media_type"
     t.string   "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
