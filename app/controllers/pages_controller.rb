@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
+  layout :blank_layout
+  
   respond_to :html
-  # before_filter :authorize
+  before_filter :blank_layout, only: [:show]
   
   def index
     respond_with @pages = Page.order("sequence")
@@ -35,5 +37,11 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     flash[:notice] = "Page Deleted" if @page.destroy
     respond_with @page
+  end
+  
+  private
+  
+  def blank_layout
+    params[:action] == 'show' ? 'blank' : 'application'
   end
 end

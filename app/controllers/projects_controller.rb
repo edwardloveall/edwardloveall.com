@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
-  respond_to :html
+  layout :blank_layout
+  
+  respond_to :html, :js
   skip_before_filter :authorize, only: [:index]
   
   def index
@@ -40,5 +42,11 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     flash[:notice] = "Project deleted" if @project.destroy
     respond_with @project
+  end
+  
+  private
+  
+  def blank_layout
+    params[:action] == 'show' && params[:format] == 'js' ? 'blank' : 'application'
   end
 end

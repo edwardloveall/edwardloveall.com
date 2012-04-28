@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function () {
+  $('#side-items a').live('click', function () {
+    $.getScript(this.href);
+    return false;
+  });
+})
