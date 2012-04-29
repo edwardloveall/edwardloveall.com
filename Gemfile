@@ -37,4 +37,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem 'redcarpet'
+gem 'redcarpet', "~> 2.1.1"

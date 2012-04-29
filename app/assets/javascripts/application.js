@@ -16,7 +16,19 @@
 
 $(function () {
   $('#side-items a').live('click', function () {
-    $.getScript(this.href);
+    // $.getScript(this.href);
+    displayPage(this.href)
+    history.pushState(null, null, this.href)
     return false;
   });
+  
+  $(window).on("popstate", function() {
+    displayPage(location.href)
+    // $.getScript(location.href);
+  })
 })
+
+function displayPage (url) {
+  $('#display').html("");
+  $.getScript(url);
+}

@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   layout :blank_layout
   
-  respond_to :html
+  respond_to :html, :js
   before_filter :blank_layout, only: [:show]
   
   def index
@@ -42,6 +42,6 @@ class PagesController < ApplicationController
   private
   
   def blank_layout
-    params[:action] == 'show' ? 'blank' : 'application'
+    params[:action] == 'show' && params[:format] == 'js' ? 'blank' : 'application'
   end
 end

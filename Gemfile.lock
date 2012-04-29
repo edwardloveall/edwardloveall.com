@@ -101,7 +101,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   jquery-rails
   rails (= 3.2.1)
-  redcarpet
+  redcarpet (~> 2.1.1)
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)
